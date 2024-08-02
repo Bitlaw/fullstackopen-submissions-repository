@@ -11,7 +11,7 @@ sequenceDiagram
     Browser->>Server: POST req: https://studies.cs.helsinki.fi/exampleapp/new_note  
 
     activate Server
-    Note over Server:  Asks the client to make a GET req (status code: 302)
+    Note over Server:  Status code: 302, tells the client to make a GET req 
     Server-->>Browser: GET req:  https://studies.cs.helsinki.fi/exampleapp/notes
     deactivate Server
 
