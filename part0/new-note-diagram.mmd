@@ -1,1 +1,56 @@
+---
+title: New note diagramm
+---
+
+
+sequenceDiagram
+
+    autonumber
+
+    Note over Browser:  Type something inside the text field  and click save (web form)
+    Browser->>Server: POST req: https://studies.cs.helsinki.fi/exampleapp/new_note  
+
+    activate Server
+    Note over Server:  Asks the client to make a GET req (status code: 302)
+    Server-->>Browser: GET req:  https://studies.cs.helsinki.fi/exampleapp/notes
+    deactivate Server
+
+    activate Browser 
+    Note over Browser: Resolves the petition and requests: notes.html -> main.css -> main.js -> data.json 
+    Browser->>Server: 
+    deactivate Browser 
+
+    activate Server
+    Note over Server: Send: notes.html
+    Server-->>Browser: .html file tells the browser what information to display and its structure
+    deactivate Server
+
+    activate Browser 
+    Note over Browser: GET: main.css 
+    Browser->>Server: 
+    deactivate Browser 
+    Note over Server: Send: main.css 
+    Server-->>Browser: .css file tells the browser how to style the information
+
+    activate Browser 
+    Note over Browser: GET: main.js 
+    Browser->>Server: 
+    deactivate Browser 
+    Note over Server: Send: main.js 
+    Server-->>Browser: Browser runs the JavaScript code which retrieves the JSON file from server
+
+    activate Browser 
+    Note over Browser: GET: data.json 
+    Browser->>Server: 
+    deactivate Browser 
+    Note over Server: Send: data.json
+    Server-->>Browser: Browser displays the data saved in the JSON file + your POST request, using an 'event handler'
+
+
+
+
+
+
+
+
 
