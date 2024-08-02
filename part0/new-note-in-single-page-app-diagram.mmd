@@ -42,12 +42,12 @@ Note over Browser: User types something in the web form
 
     activate Server
     Note over Server: Send: Status code: 201, petition created
-    Server-->>Browser: sends the updated data.json  file
+    Server-->>Browser: updated data.json  file
     deactivate Server
 
     activate Browser 
-    Note over Browser: Load data.json file 
-    Browser->Server: https://studies.cs.helsinki.fi/exampleapp/spa
+    Note over Browser: data.json file 
+    Browser->Server: Loads on the same page -> https://studies.cs.helsinki.fi/exampleapp/spa
     deactivate Browser 
  
  Note over Browser, Server: New information is dynamically loaded, by the client, on a specific part, there's no full page reload
