@@ -1,0 +1,54 @@
+---
+title: Single page app diagram 
+---
+
+
+sequenceDiagram
+
+    autonumber
+
+    Note over Browser:  GET method (request data)
+    Browser->>Server: https://studies.cs.helsinki.fi/exampleapp/spa
+
+    activate Server
+    Note over Server: Send: spa.html
+    Server-->>Browser: file to client
+    deactivate Server
+
+    activate Browser 
+    Note over Browser: GET: main.css 
+    Browser->>Server: 
+    deactivate Browser 
+    Note over Server: Send: main.css 
+    Server-->>Browser: file to client
+
+    activate Browser 
+    Note over Browser: GET: spa.js 
+    Browser->>Server: 
+    deactivate Browser 
+    Note over Server: Send: spa.js 
+    Server-->>Browser: file to client
+
+    Note right of Browser: Browser runs the JavaScript code which retrieves the JSON file from server
+    
+    activate Browser 
+    Note over Browser: GET: data.json 
+    Browser->>Server: 
+    deactivate Browser 
+    Note over Server: Send: data.json
+    Server-->>Browser: file to client
+
+    Note right of Browser: Browser displays the data contained in the JSON file
+
+    activate Browser 
+    Note over Browser: GET: favicon.ico
+    Browser->>Server: 
+    deactivate Browser 
+    Note over Server: Send: favicon.ico
+    Server-->>Browser: file to client
+
+
+ 
+
+
+
