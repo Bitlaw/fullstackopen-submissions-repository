@@ -12,7 +12,7 @@ sequenceDiagram
 
     activate Server
     Note over Server: Send: spa.html
-    Server-->>Browser: html file will tell the browser what information to display and its structure
+    Server-->>Browser: html file tells the browser what information to display and its structure
     deactivate Server
 
     activate Browser 
@@ -20,7 +20,7 @@ sequenceDiagram
     Browser->>Server: 
     deactivate Browser 
     Note over Server: Send: main.css 
-    Server-->>Browser: css file will tell the browser how to style the information
+    Server-->>Browser: css file tells the browser how to style the information
 
     activate Browser 
     Note over Browser: GET: spa.js 
