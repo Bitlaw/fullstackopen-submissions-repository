@@ -1,1 +1,55 @@
 
+---
+title: Single page app diagram 
+---
+
+
+sequenceDiagram
+
+    autonumber
+
+    Note over Browser:  Visits the website, GET method - fetch data
+    Browser->>Server: https://studies.cs.helsinki.fi/exampleapp/spa
+
+    activate Server
+    Note over Server: Send: spa.html
+    Server-->>Browser: .html file tells the browser what information to display and its structure
+    deactivate Server
+
+    activate Browser 
+    Note over Browser: GET: main.css 
+    Browser->>Server: 
+    deactivate Browser 
+    Note over Server: Send: main.css 
+    Server-->>Browser: .css file tells the browser how to style the information
+
+    activate Browser 
+    Note over Browser: GET: spa.js 
+    Browser->>Server: 
+    deactivate Browser 
+    Note over Server: Send: spa.js 
+    Server-->>Browser: Browser runs the JavaScript code which retrieves the JSON file from server
+
+    activate Browser 
+    Note over Browser: GET: data.json 
+    Browser->>Server: 
+    deactivate Browser 
+    Note over Server: Send: data.json
+    Server-->>Browser: Browser displays the data contained in the JSON file, using an 'event handler'
+
+Note over Browser: User types something in the web form 
+    Browser->>Server: POST req: https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+    activate Server
+    Note over Server: Send: Status code: 201, petition created
+    Server-->>Browser: sends the updated data.json  file
+    deactivate Server
+
+    activate Browser 
+    Note over Browser: Load data.json file 
+    Browser->Server: https://studies.cs.helsinki.fi/exampleapp/spa
+    deactivate Browser 
+ 
+ Note over Browser, Server: New information is dynamically loaded on the same page without the need of a full data request of the page
+ 
+
