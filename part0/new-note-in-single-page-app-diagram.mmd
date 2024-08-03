@@ -35,19 +35,13 @@ sequenceDiagram
     Note over Server: Send: data.json
     Server-->>Browser: Browser displays the data contained in the JSON file, using an 'event handler'
 
-Note over Browser: User types something in the web form 
+    Note over Browser: User types something in the web form 
+    Note right of Server: Status code: 201, petition created
     Browser->>Server: POST req: https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+   
 
-    activate Server
-    Note over Server: Send: Status code: 201, petition created
-    Server-->>Browser: updated data.json  file
-    deactivate Server
-
-    activate Browser 
-    Note over Browser: data.json file 
-    Browser->Server: Loads on the same page -> https://studies.cs.helsinki.fi/exampleapp/spa
-    deactivate Browser 
- 
- Note over Browser, Server: New information is dynamically loaded, by the client, on a specific part, there's no full page reload
+    Note over Browser, Server: The client adds the data to the page dynamically, no need full page reload, then send the new data to the server to update data.json
+    
+    
  
 
